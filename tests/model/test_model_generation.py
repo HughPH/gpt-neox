@@ -50,7 +50,7 @@ parameters, names = parametrize(
 )
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 @pytest.mark.parametrize("param_dict", parameters, ids=names)
 def test_train(param_dict):
     @distributed_test(world_size=param_dict.pop("world_size", 2))
