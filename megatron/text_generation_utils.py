@@ -459,10 +459,10 @@ def generate_samples_from_prompt(
                     "\nPlease give smaller context (e.g. half of the "
                     "max sequence length)!",
                 )
-        if not is_mp_rank_0():
-            context_tokens = neox_args.tokenizer.tokenize("EMPTY TEXT")
-            context_length = len(context_tokens)
-            terminate_runs = 0
+        # if not is_mp_rank_0():
+        #     context_tokens = neox_args.tokenizer.tokenize("EMPTY TEXT")
+        #     context_length = len(context_tokens)
+        #     terminate_runs = 0
 
         terminate_runs = broadcast_terminate_signal(terminate_runs)
         if terminate_runs == 1:
